@@ -19,7 +19,7 @@ Y1 <- df1$field1
 cols <- c("black","green")
 result=nls(Y1~E_CO2*(1-exp(-(k*X)))+S_CO2*(exp(-(k*X))),start=list(k=20/60000,E_CO2=END_CO2,S_CO2=START_CO2))
 sink("result.csv",append=T)
-paste(pic_str,coef(result)[1],coef(result)[2],coef(result)[3],END_CO2,START_CO2,sep=",")
+paste(pic_str,coef(result)[1],coef(result)[2],coef(result)[3],END_CO2,START_CO2,RANGE,sep=",")
 sink()
 plot(X,Y1,type="l",col=cols[1],xlim=c(1,X[RANGE]),ylim=c(END_CO2 - 20,START_CO2 + 30),xlab="経過時間[s]",ylab="co2[ppm]")
 par(new=T)

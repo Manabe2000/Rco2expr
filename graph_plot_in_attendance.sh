@@ -14,7 +14,7 @@ done < ../use_data.txt
 
 sed -e 's/"//g' result.csv > result_copy.csv
 cut -b 10- result_copy.csv > result.csv
-sed -i "1ipngdata,A,k,nh,START_CO2" result.csv
+sed -i "1ipngdata,A,k,nh,START_CO2,DATA_RANGE" result.csv
 rm result_copy.csv
 
 cd ../
