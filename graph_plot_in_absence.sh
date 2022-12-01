@@ -14,7 +14,8 @@ done < ../use_data.txt
 
 sed -e 's/"//g' result.csv > result_copy.csv
 cut -b 10- result_copy.csv > result.csv
-sed -i "1iname,k,S_CO,E_CO2,END_CO2,START_CO2,DATA_RANGE" result.csv
+sed -i "1ipngdata,k,S_CO,E_CO2,END_CO2,START_CO2,DATA_RANGE" result.csv
 rm result_copy.csv
+Rscript scatter_plot_time_k.R
 
 cd ../
