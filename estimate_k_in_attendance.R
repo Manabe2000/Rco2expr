@@ -19,7 +19,7 @@ Y1 <- df1$field1
 cols <- c("black","green")
 result=nls(Y1~A*(1-exp(-(k*X)))+START_CO2*(1-exp(-(k*X)))+START_CO2*(exp(-(k*X))),start=list(A=300,k=20/60000))
 sink("result.csv",append=T)
-paste(pic_str,coef(result)[1],coef(result)[2],coef(result)[1]/coef(result)[2],START_CO2,as.duration(interval(df1[1,1],df1[RANGE,1])),sep=",")
+paste(pic_str,coef(result)[1],coef(result)[2],coef(result)[1]/coef(result)[2],START_CO2,as.numeric(as.duration(interval(df1[1,1],df1[RANGE,1])),"seconds"),sep=",")
 sink()
 plot(X,Y1,type="l",col=cols[1],xlim=c(1,X[RANGE]),ylim=c(300,1000),xlab="経過時間[s]",ylab="co2[ppm]")
 par(new=T)
